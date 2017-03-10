@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NetWorkTools.h"
 
 @interface NewsTableViewController : UITableViewController
 

@@ -75,16 +75,6 @@
     //预加载
     self.newsCollectionView.prefetchingEnabled = YES;
     
-    //单例   block的回调
-    [[NetWorkTools sharedTools] requestWithType:GET andUrlStr:@"T1348647853363/0-20.html" andParameter:nil andSucess:^(id responseObject) {
-        
-        
-        
-    } andFailure:^(id error) {
-       
-        
-        
-    }];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{

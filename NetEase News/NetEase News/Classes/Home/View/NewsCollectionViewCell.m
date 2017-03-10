@@ -18,13 +18,13 @@
     [super awakeFromNib];
     
     //创建新闻列表控制器
-    NewsTableViewController *newsTableViewVc = [[NewsTableViewController alloc] init];
+    _newVc = [[NewsTableViewController alloc] init];
     
     //注意:是将控制器的tableView添加在cell的contentView上
-    [self.contentView addSubview:newsTableViewVc.tableView];
+    [self.contentView addSubview:_newVc.tableView];
     
     //设置约束
-    newsTableViewVc.tableView.frame = self.contentView.bounds;
+    _newVc.tableView.frame = self.contentView.bounds;
     
     
 }
