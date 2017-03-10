@@ -24,9 +24,9 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - 重写seturl方法
+- (void)setUrlForTableView:(NSString *)urlForTableView{
+    _urlForTableView = urlForTableView;
 }
 
 #pragma mark - Table view data source

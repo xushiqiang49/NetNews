@@ -10,6 +10,9 @@
 #import "NewsTableViewController.h"
 
 @implementation NewsCollectionViewCell
+{
+    NewsTableViewController *_newVc;
+}
 
 - (void)awakeFromNib{
     [super awakeFromNib];
@@ -23,6 +26,13 @@
     //设置约束
     newsTableViewVc.tableView.frame = self.contentView.bounds;
     
+    
+}
+
+- (void)setUrl:(NSString *)url{
+    _url = url;
+    
+    _newVc.urlForTableView = url;
 }
 
 @end

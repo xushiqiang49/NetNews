@@ -10,4 +10,5 @@
 
 @interface NewsCollectionViewCell : UICollectionViewCell
 
+@property(nonatomic, copy)NSString *url;
 @end

@@ -96,6 +96,14 @@
 
     NewsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"newsCell" forIndexPath:indexPath];
     
+    //获取频道的id
+    NSString *tid = self.tagModelArray[indexPath.item].tid;
+    
+    //拼接请求的当前url
+    NSString *urlNowStr = [NSString stringWithFormat:@"%@/0-20.html",tid];
+    
+    cell.url = urlNowStr;
+    
     return cell;
 }
 
