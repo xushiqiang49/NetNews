@@ -10,6 +10,8 @@
 #import "TagModel.h"
 #import <YYModel.h>
 #import "TagLabel.h"
+#import "NewsCollectionViewCell.h"
+#import "NetWorkTools.h"
 
 @interface HomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -72,6 +74,17 @@
     
     //预加载
     self.newsCollectionView.prefetchingEnabled = YES;
+    
+    //单例   block的回调
+    [[NetWorkTools sharedTools] requestWithType:GET andUrlStr:@"T1348647853363/0-20.html" andParameter:nil andSucess:^(id responseObject) {
+        
+        
+        
+    } andFailure:^(id error) {
+       
+        
+        
+    }];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -81,7 +94,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
 
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"newsCell" forIndexPath:indexPath];
+    NewsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"newsCell" forIndexPath:indexPath];
     
     return cell;
 }
