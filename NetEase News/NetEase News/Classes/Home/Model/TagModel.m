@@ -17,6 +17,7 @@
     return desc;
 }
 
+#pragma mark --  获取标签数据
 + (NSArray *)getTagModelArray{
 
     //获取路径

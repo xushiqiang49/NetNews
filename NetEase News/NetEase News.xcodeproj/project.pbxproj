@@ -17,6 +17,7 @@
 		3186F0D81E72CA1C00784F9F /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3186F0D71E72CA1C00784F9F /* HomeViewController.m */; };
 		3186F0DA1E72CB2000784F9F /* topic_news.json in Resources */ = {isa = PBXBuildFile; fileRef = 3186F0D91E72CB2000784F9F /* topic_news.json */; };
 		3186F0DD1E72CE8900784F9F /* TagModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3186F0DC1E72CE8900784F9F /* TagModel.m */; };
+		3186F0E01E72D48200784F9F /* TagLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3186F0DF1E72D48200784F9F /* TagLabel.m */; };
 		F52CC0607747A234A7145C03 /* libPods-NetEase News.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12326ACDBEAA870A29E1515F /* libPods-NetEase News.a */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,8 @@
 		3186F0D91E72CB2000784F9F /* topic_news.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = topic_news.json; sourceTree = "<group>"; };
 		3186F0DB1E72CE8900784F9F /* TagModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagModel.h; sourceTree = "<group>"; };
 		3186F0DC1E72CE8900784F9F /* TagModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagModel.m; sourceTree = "<group>"; };
+		3186F0DE1E72D48200784F9F /* TagLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagLabel.h; sourceTree = "<group>"; };
+		3186F0DF1E72D48200784F9F /* TagLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagLabel.m; sourceTree = "<group>"; };
 		41F2940A90B9DD2811538392 /* Pods-NetEase News.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetEase News.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetEase News/Pods-NetEase News.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,6 +185,8 @@
 		3186F0D31E72C85D00784F9F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3186F0DE1E72D48200784F9F /* TagLabel.h */,
+				3186F0DF1E72D48200784F9F /* TagLabel.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -408,6 +413,7 @@
 				3186F0631E72C01E00784F9F /* AppDelegate.m in Sources */,
 				3186F0601E72C01E00784F9F /* main.m in Sources */,
 				3186F0DD1E72CE8900784F9F /* TagModel.m in Sources */,
+				3186F0E01E72D48200784F9F /* TagLabel.m in Sources */,
 				3186F0D81E72CA1C00784F9F /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
