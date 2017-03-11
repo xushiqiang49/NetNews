@@ -9,6 +9,7 @@
 #import "NewsTableViewController.h"
 #import "NetWorkTools.h"
 #import "NewsModel.h"
+#import "NewsTableViewCell.h"
 
 @interface NewsTableViewController ()
 
@@ -19,9 +20,18 @@
 @implementation NewsTableViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    
+    [self setupTableView];
 }
+//  tableView的相关设置
+- (void)setupTableView {
+    
+    //  注册cell
+    [self.tableView registerNib:[UINib nibWithNibName:@"BaseCell" bundle:nil] forCellReuseIdentifier:@"baseCell"];
 
+}
 #pragma mark - 重写seturl方法
 - (void)setUrlForTableView:(NSString *)urlForTableView{
     
@@ -37,7 +47,6 @@
 
 #pragma mark - Table view data source
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     return self.array.count;
@@ -45,12 +54,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    NewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"baseCell" forIndexPath:indexPath];
     NewsModel *model = self.array[indexPath.row];
+   
     //  显示新闻标题
-    cell.textLabel.text = model.title;
+    //cell.textLabel.text = model.title;
+    
+    cell.newsModel = model;
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 80;
 }
 
 @end

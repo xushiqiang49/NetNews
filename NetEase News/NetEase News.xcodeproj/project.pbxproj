@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		310461731E737DFE00EBBCFF /* NewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 310461721E737DFE00EBBCFF /* NewsModel.m */; };
+		310461771E73B68A00EBBCFF /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 310461751E73B68A00EBBCFF /* NewsTableViewCell.m */; };
+		310461781E73B68A00EBBCFF /* BaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 310461761E73B68A00EBBCFF /* BaseCell.xib */; };
 		3186F0601E72C01E00784F9F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3186F05F1E72C01E00784F9F /* main.m */; };
 		3186F0631E72C01E00784F9F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3186F0621E72C01E00784F9F /* AppDelegate.m */; };
 		3186F0691E72C01E00784F9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3186F0671E72C01E00784F9F /* Main.storyboard */; };
@@ -47,6 +49,9 @@
 		12326ACDBEAA870A29E1515F /* libPods-NetEase News.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NetEase News.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		310461711E737DFE00EBBCFF /* NewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsModel.h; sourceTree = "<group>"; };
 		310461721E737DFE00EBBCFF /* NewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsModel.m; sourceTree = "<group>"; };
+		310461741E73B68A00EBBCFF /* NewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewCell.h; sourceTree = "<group>"; };
+		310461751E73B68A00EBBCFF /* NewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewCell.m; sourceTree = "<group>"; };
+		310461761E73B68A00EBBCFF /* BaseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseCell.xib; sourceTree = "<group>"; };
 		3186F05B1E72C01E00784F9F /* NetEase News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NetEase News.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3186F05F1E72C01E00784F9F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3186F0611E72C01E00784F9F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -203,6 +208,9 @@
 				3186F0DF1E72D48200784F9F /* TagLabel.m */,
 				3186F0E41E72E5A200784F9F /* NewsCollectionViewCell.h */,
 				3186F0E51E72E5A200784F9F /* NewsCollectionViewCell.m */,
+				310461741E73B68A00EBBCFF /* NewsTableViewCell.h */,
+				310461751E73B68A00EBBCFF /* NewsTableViewCell.m */,
+				310461761E73B68A00EBBCFF /* BaseCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -358,6 +366,7 @@
 				3186F06B1E72C01E00784F9F /* Assets.xcassets in Resources */,
 				3186F0DA1E72CB2000784F9F /* topic_news.json in Resources */,
 				3186F0691E72C01E00784F9F /* Main.storyboard in Resources */,
+				310461781E73B68A00EBBCFF /* BaseCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +445,7 @@
 				3186F0E61E72E5A200784F9F /* NewsCollectionViewCell.m in Sources */,
 				310461731E737DFE00EBBCFF /* NewsModel.m in Sources */,
 				3186F0E91E72E80B00784F9F /* NetWorkTools.m in Sources */,
+				310461771E73B68A00EBBCFF /* NewsTableViewCell.m in Sources */,
 				3186F0DD1E72CE8900784F9F /* TagModel.m in Sources */,
 				3186F0E01E72D48200784F9F /* TagLabel.m in Sources */,
 				3186F0D81E72CA1C00784F9F /* HomeViewController.m in Sources */,

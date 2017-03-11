@@ -14,20 +14,20 @@
 
 + (void)requestNewsModelArrayWithUrlStr:(NSString *)urlStr andCompletionBlock:(void(^)(NSArray * modelArray)) completionBlock{
     
-[[NetWorkTools sharedTools] requestWithType:GET andUrlStr:urlStr andParameter:nil andSucess:^(id responseObject) {
-    
-    NSDictionary *dict = (NSDictionary *)responseObject;
-    
-    NSString *key = dict.allKeys.firstObject;
-    
-    NSArray *newsArray = [dict objectForKey:key];
-    
-    NSArray *modelArray = [NSArray yy_modelArrayWithClass:[NewsModel class] json:newsArray];
-    
-    completionBlock(modelArray);
-    
-} andFailure:^(id error) {
-    
-}];
+    [[NetWorkTools sharedTools] requestWithType:GET andUrlStr:urlStr andParameter:nil andSucess:^(id responseObject) {
+        
+        NSDictionary *dict = (NSDictionary *)responseObject;
+        
+        NSString *key = dict.allKeys.firstObject;
+        
+        NSArray *newsArray = [dict objectForKey:key];
+        
+        NSArray *modelArray = [NSArray yy_modelArrayWithClass:[NewsModel class] json:newsArray];
+        
+        completionBlock(modelArray);
+        
+    } andFailure:^(id error) {
+        
+    }];
 }
 @end

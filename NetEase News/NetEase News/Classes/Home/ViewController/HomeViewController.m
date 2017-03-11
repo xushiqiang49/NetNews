@@ -51,7 +51,7 @@
     self.newsCollectionView.delegate = self;
     
     //设置item的大小
-    self.NewCollectionViewFlowOut.itemSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height - self.tagScrollView.frame.size.width - 64);
+    self.NewCollectionViewFlowOut.itemSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height - 44 - 64);
 
     //设置垂直间距
     self.NewCollectionViewFlowOut.minimumLineSpacing = 0;
@@ -77,8 +77,8 @@
     
 }
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    
     return self.tagModelArray.count;
 }
 
