@@ -7,8 +7,12 @@
 //
 
 #import "NewsTableViewController.h"
+#import "NetWorkTools.h"
+#import "NewsModel.h"
 
 @interface NewsTableViewController ()
+
+@property(nonatomic,strong)NSArray *array;
 
 @end
 
@@ -23,31 +27,30 @@
     
     _urlForTableView = urlForTableView;
     
-    //单例   block的回调
-    [[NetWorkTools sharedTools] requestWithType:GET andUrlStr:urlForTableView andParameter:nil andSucess:^(id responseObject) {
+    [NewsModel requestNewsModelArrayWithUrlStr:urlForTableView andCompletionBlock:^(NSArray *modelArray) {
         
-        NSDictionary *dict = (NSDictionary *)responseObject;
+        _array = modelArray;
         
-        NSString *key = dict.allKeys.firstObject;
-        
-        NSArray *newsArray = [dict objectForKey:key];
-        
-    } andFailure:^(id error) {
-        
-    }];
+        [self.tableView reloadData];
+    } ];
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
-    return 0;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 0;
+    return self.array.count;
 }
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    NewsModel *model = self.array[indexPath.row];
+    //  显示新闻标题
+    cell.textLabel.text = model.title;
+    
+    return cell;
+}
 
 @end
