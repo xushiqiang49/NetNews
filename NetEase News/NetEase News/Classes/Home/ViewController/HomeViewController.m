@@ -72,6 +72,12 @@
     
     [self.tagScrollView setContentOffset:CGPointMake(contentOffSetX, 0) animated:YES];
     
+    //MARK: 联动下方的collectionView滚动
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:tagLabel.tag inSection:0];
+    
+    //设置滚动
+    [self.newsCollectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
+    
 }
 
 #pragma mark -- 02 设置新闻滚动视图
@@ -159,7 +165,7 @@
         //添加手势
         [label addGestureRecognizer:tapGesture];
         
-        //设置tag
+        //设置tag  用于点击标签联动下方的collec滚动
         label.tag = i;
         
         
