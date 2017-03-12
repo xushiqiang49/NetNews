@@ -23,6 +23,9 @@
 //回复
 @property (weak, nonatomic) IBOutlet UILabel *labelReply;
 
+//多图片(排除第一张)的数组
+@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *iconImageViews;
+
 @end
 
 @implementation NewsTableViewCell
@@ -47,6 +50,22 @@
     self.labelSource.text = newsModel.source;
     
     self.labelReply.text = [NSString stringWithFormat:@"%zd", newsModel.replyCount];
+    
+    //遍历图片集合
+    for (int i = 0; i < self.iconImageViews.count; i++) {
+        
+        NSDictionary *imageDic = newsModel.imgextra[i];
+        
+        NSString *imagePath = [imageDic objectForKey:@"imgsrc"];
+        
+        //获取对应的imageView
+        UIImageView *imageView = self.iconImageViews[i];
+        
+        [imageView sd_setImageWithURL:[NSURL URLWithString:imagePath] placeholderImage:[UIImage imageNamed:@"placeholderImage"]];
+        
+    }
+    
+    
 }
 
 @end

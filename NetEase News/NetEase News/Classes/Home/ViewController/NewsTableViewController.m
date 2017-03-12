@@ -28,10 +28,13 @@
 //  tableView的相关设置
 - (void)setupTableView {
     
-    //  注册cell
+    //  注册cell(基础)
     [self.tableView registerNib:[UINib nibWithNibName:@"BaseCell" bundle:nil] forCellReuseIdentifier:@"baseCell"];
     
+    //大图
     [self.tableView registerNib:[UINib nibWithNibName:@"BigImageCell" bundle:nil] forCellReuseIdentifier:@"bigImageCell"];
+    //多图
+    [self.tableView registerNib:[UINib nibWithNibName:@"Images" bundle:nil] forCellReuseIdentifier:@"imagesCell"];
 
 }
 #pragma mark - 重写seturl方法
@@ -65,7 +68,14 @@
         //有大图标记
         cell = [tableView dequeueReusableCellWithIdentifier:@"bigImageCell" forIndexPath:indexPath];
     
-    }else{
+    }
+    else if (model.imgextra.count == 2){
+        
+        //表示多图
+        cell = [tableView dequeueReusableCellWithIdentifier:@"imagesCell" forIndexPath:indexPath];
+        
+    }
+    else{
         
         cell = [tableView dequeueReusableCellWithIdentifier:@"baseCell" forIndexPath:indexPath];
     }
@@ -82,7 +92,12 @@
     if (model.imgType) {
         
         return 130;
-    } else{
+    }
+    else if (model.imgextra.count == 2){
+    
+        return 180;
+    }
+    else{
         
         return 80;
     }
