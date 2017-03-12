@@ -25,6 +25,10 @@
 
 //item的布局属性
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *NewCollectionViewFlowOut;
+
+//创建数组记录频道标签
+@property(nonatomic,strong) NSMutableArray *tagLabelArray;
+
 @end
 
 @implementation HomeViewController
@@ -44,11 +48,23 @@
     //[self tapGesture];
 }
 
-#pragma mark -- 03 点击频道标签,要显示在居中位置
-//点击频道标签的手势处理
-- (void)tapChannelLabelAction:(UITapGestureRecognizer *)gesture{
 
-    TagLabel *tagLabel = (TagLabel *)gesture.view;
+
+
+#pragma mark -- 04 滚动collectionView,联动标签
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+
+    //滚动的大小除以屏幕的宽度,计算index
+    int index = scrollView.contentOffset.x / scrollView.frame.size.width;
+    
+    TagLabel *tagLabel = self.tagLabelArray[index];
+    
+    [self scrollTageLabel:tagLabel];
+    
+}
+
+//滚动到指定的标签频道在屏幕中心x显示
+- (void)scrollTageLabel:(TagLabel *)tagLabel{
     
     CGFloat tagLabeCenterX = tagLabel.center.x;
     
@@ -71,6 +87,16 @@
     }
     
     [self.tagScrollView setContentOffset:CGPointMake(contentOffSetX, 0) animated:YES];
+
+}
+
+#pragma mark -- 03 点击频道标签,要显示在居中位置
+//点击频道标签的手势处理
+- (void)tapChannelLabelAction:(UITapGestureRecognizer *)gesture{
+
+    TagLabel *tagLabel = (TagLabel *)gesture.view;
+    
+    [self scrollTageLabel:tagLabel];
     
     //MARK: 联动下方的collectionView滚动
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:tagLabel.tag inSection:0];
@@ -168,6 +194,8 @@
         //设置tag  用于点击标签联动下方的collec滚动
         label.tag = i;
         
+        //将label添加到数组中
+        [self.tagLabelArray addObject:label];
         
         //MARK:设置contentSize
         self.tagScrollView.contentSize = CGSizeMake(tagLabelWidth * self.tagModelArray.count, 0);
