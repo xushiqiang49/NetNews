@@ -30,6 +30,8 @@
     
     //  注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"BaseCell" bundle:nil] forCellReuseIdentifier:@"baseCell"];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"BigImageCell" bundle:nil] forCellReuseIdentifier:@"bigImageCell"];
 
 }
 #pragma mark - 重写seturl方法
@@ -54,11 +56,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    NewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"baseCell" forIndexPath:indexPath];
-    NewsModel *model = self.array[indexPath.row];
-   
-    //  显示新闻标题
-    //cell.textLabel.text = model.title;
+    NewsTableViewCell *cell ;
+
+   NewsModel *model = self.array[indexPath.row];
+
+    if (model.imgType) {
+        
+        //有大图标记
+        cell = [tableView dequeueReusableCellWithIdentifier:@"bigImageCell" forIndexPath:indexPath];
+    
+    }else{
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:@"baseCell" forIndexPath:indexPath];
+    }
     
     cell.newsModel = model;
     
@@ -66,7 +76,15 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 80;
+    
+    NewsModel *model = self.array[indexPath.row];
+    
+    if (model.imgType) {
+        
+        return 130;
+    } else{
+        
+        return 80;
+    }
 }
-
 @end

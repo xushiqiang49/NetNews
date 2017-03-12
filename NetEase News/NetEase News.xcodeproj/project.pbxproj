@@ -24,6 +24,8 @@
 		3186F0E31E72E52E00784F9F /* NewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3186F0E21E72E52E00784F9F /* NewsTableViewController.m */; };
 		3186F0E61E72E5A200784F9F /* NewsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3186F0E51E72E5A200784F9F /* NewsCollectionViewCell.m */; };
 		3186F0E91E72E80B00784F9F /* NetWorkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 3186F0E81E72E80B00784F9F /* NetWorkTools.m */; };
+		31EB8FA11E757D4900D085EA /* BigImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31EB8FA01E757D4900D085EA /* BigImageCell.xib */; };
+		31EB8FA31E757D6000D085EA /* Images.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31EB8FA21E757D6000D085EA /* Images.xib */; };
 		F52CC0607747A234A7145C03 /* libPods-NetEase News.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12326ACDBEAA870A29E1515F /* libPods-NetEase News.a */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +81,8 @@
 		3186F0E51E72E5A200784F9F /* NewsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCollectionViewCell.m; sourceTree = "<group>"; };
 		3186F0E71E72E80B00784F9F /* NetWorkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkTools.h; sourceTree = "<group>"; };
 		3186F0E81E72E80B00784F9F /* NetWorkTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkTools.m; sourceTree = "<group>"; };
+		31EB8FA01E757D4900D085EA /* BigImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BigImageCell.xib; sourceTree = "<group>"; };
+		31EB8FA21E757D6000D085EA /* Images.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Images.xib; sourceTree = "<group>"; };
 		41F2940A90B9DD2811538392 /* Pods-NetEase News.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetEase News.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetEase News/Pods-NetEase News.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -211,6 +215,8 @@
 				310461741E73B68A00EBBCFF /* NewsTableViewCell.h */,
 				310461751E73B68A00EBBCFF /* NewsTableViewCell.m */,
 				310461761E73B68A00EBBCFF /* BaseCell.xib */,
+				31EB8FA01E757D4900D085EA /* BigImageCell.xib */,
+				31EB8FA21E757D6000D085EA /* Images.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -362,8 +368,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31EB8FA31E757D6000D085EA /* Images.xib in Resources */,
 				3186F06E1E72C01E00784F9F /* LaunchScreen.storyboard in Resources */,
 				3186F06B1E72C01E00784F9F /* Assets.xcassets in Resources */,
+				31EB8FA11E757D4900D085EA /* BigImageCell.xib in Resources */,
 				3186F0DA1E72CB2000784F9F /* topic_news.json in Resources */,
 				3186F0691E72C01E00784F9F /* Main.storyboard in Resources */,
 				310461781E73B68A00EBBCFF /* BaseCell.xib in Resources */,
