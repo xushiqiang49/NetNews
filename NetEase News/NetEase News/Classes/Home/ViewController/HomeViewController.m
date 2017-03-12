@@ -40,6 +40,38 @@
     [self setTageScrollView];
     
     [self setNewCollectionView];
+    
+    //[self tapGesture];
+}
+
+#pragma mark -- 03 点击频道标签,要显示在居中位置
+//点击频道标签的手势处理
+- (void)tapChannelLabelAction:(UITapGestureRecognizer *)gesture{
+
+    TagLabel *tagLabel = (TagLabel *)gesture.view;
+    
+    CGFloat tagLabeCenterX = tagLabel.center.x;
+    
+    CGFloat contentOffSetX = tagLabeCenterX - self.view.frame.size.width * 0.5;
+    
+    //设置最小滚动范围
+    CGFloat contentOffSetMinX = 0;
+    
+    //最大滚动范围
+    CGFloat contentOffSetMaxX = self.tagScrollView.contentSize.width - self.view.frame.size.width;
+    
+    //MARK: 对滚动范围进行判断,防止第一个和最后一个标签居中
+    if (contentOffSetX < contentOffSetMinX) {
+        
+        contentOffSetX = contentOffSetMinX;
+    }
+    if (contentOffSetX > contentOffSetMaxX) {
+        
+        contentOffSetX = contentOffSetMaxX;
+    }
+    
+    [self.tagScrollView setContentOffset:CGPointMake(contentOffSetX, 0) animated:YES];
+    
 }
 
 #pragma mark -- 02 设置新闻滚动视图
@@ -118,7 +150,20 @@
         
         [self.tagScrollView addSubview:label];
         
-        //设置contentSize
+        //MARK:开启频道标签的用户交互,并创建手势
+        label.userInteractionEnabled = YES;
+        
+        //创建手势
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapChannelLabelAction:)];
+        
+        //添加手势
+        [label addGestureRecognizer:tapGesture];
+        
+        //设置tag
+        label.tag = i;
+        
+        
+        //MARK:设置contentSize
         self.tagScrollView.contentSize = CGSizeMake(tagLabelWidth * self.tagModelArray.count, 0);
         
         self.tagScrollView.showsHorizontalScrollIndicator = NO;
