@@ -10,4 +10,6 @@
 
 @interface TagLabel : UILabel
 
+//创建百分比属性
+@property (nonatomic ,assign)CGFloat scalePercent;
 @end

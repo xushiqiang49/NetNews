@@ -48,7 +48,43 @@
     //[self tapGesture];
 }
 
+#pragma mark -- 05 频道标签的缩放, 颜色变化
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
 
+    //计算小数索引
+    CGFloat floatIndex = scrollView.contentOffset.x / scrollView.frame.size.width;
+    
+    //计算整数索引
+    int intIndex =scrollView.contentOffset.x / scrollView.frame.size.width;
+    
+    //获取小数点位
+    CGFloat precent = floatIndex - intIndex;
+    
+    //获取当前标签的百分比
+    CGFloat nowPrecent = 1 - precent;
+    
+    //获取下一个标签的百分比
+    CGFloat nextPrecent = precent;
+    
+    //当前的索引为
+    int nowIndex = intIndex;
+    
+    //下一个索引为
+    int nextIndex = intIndex + 1;
+    
+    //从数组中根据索引获取label
+    TagLabel *nowLabel = self.tagLabelArray[nowIndex];
+    
+    //给label的百分比属性传值,设置当前标签的百分比
+    nowLabel.scalePercent = nowPrecent;
+    
+    //  判断右边的频道的标签是否超出可用的取值访问 , [0-46]
+    if (nextIndex < self.tagLabelArray.count) {
+        TagLabel *nextLabel = self.tagLabelArray[nextIndex];
+       nextLabel.scalePercent = nextPrecent;
+    }
+    
+}
 
 
 #pragma mark -- 04 滚动collectionView,联动标签
@@ -104,6 +140,16 @@
     //设置滚动
     [self.newsCollectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
     
+    //  遍历频道数组,判断点击的频道和数组里面的频道进行查找,如果找到了,那么放大,否则显示默认状态
+    for (TagLabel *channelabel in self.tagLabelArray) {
+        if (tagLabel == channelabel) {
+            //  设置变大变红
+            channelabel.scalePercent = 1;
+        } else {
+            //  其它频道标签设置成默认状态就可以了
+            channelabel.scalePercent = 0;
+        }
+    }
 }
 
 #pragma mark -- 02 设置新闻滚动视图
@@ -166,6 +212,8 @@
     
    self.tagModelArray = [TagModel getTagModelArray];
     
+    self.tagLabelArray = [NSMutableArray array];
+    
     //创建标签的label
     CGFloat tagLabelWidth = 80;
     CGFloat tagLabelHeight = 44;
@@ -197,13 +245,18 @@
         //将label添加到数组中
         [self.tagLabelArray addObject:label];
         
-        //MARK:设置contentSize
-        self.tagScrollView.contentSize = CGSizeMake(tagLabelWidth * self.tagModelArray.count, 0);
-        
-        self.tagScrollView.showsHorizontalScrollIndicator = NO;
-        self.tagScrollView.showsVerticalScrollIndicator = NO;
-        
+        //  表示头条新闻
+        if (i == 0) {
+            label.scalePercent = 1;
+        }
     }
+    
+    //MARK:设置contentSize
+    self.tagScrollView.contentSize = CGSizeMake(tagLabelWidth * self.tagModelArray.count, 0);
+    
+    self.tagScrollView.showsHorizontalScrollIndicator = NO;
+    self.tagScrollView.showsVerticalScrollIndicator = NO;
+    
     
 }
 
